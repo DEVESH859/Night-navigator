@@ -8,9 +8,8 @@ env/
 .DS_Store
 .ipynb_checkpoints
 
-# Ignore massive data files (GitHub 100MB limit)
-data/bangalore_graph.graphml
+# Ignore massive raw data files (GitHub 100MB limit)
+# We allow bangalore_graph.graphml and .pkl files via Git LFS
 data/edges.geojson
 data/edges_with_safety.geojson
 data/pois.geojson
-*.pkl 
