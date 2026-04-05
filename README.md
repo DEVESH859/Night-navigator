@@ -44,77 +44,77 @@ Built on open street data, classical machine learning, and graph-search algorith
 ### Map View — Navigate Safely
 Enter origin, destination, and optional stops. The Guardian Route (cyan) is displayed alongside the standard fastest path (dashed grey), with live safety metrics in the bottom bar.
 
-![Map View - Navigate Safely](images\WhatsApp Image 2026-04-05 at 10.00.30 PM.jpeg)
+![Map View - Navigate Safely](images/WhatsApp_Image_2026-04-05_at_10.00.30_PM.jpeg)
 
 ### Map View — Landmark Quick-Select & Route Overlay
 The sidebar lists pre-loaded Bangalore landmarks for one-tap routing. The top-right badge confirms the loaded graph: 1,54,929 nodes · 3,93,139 edges.
 
-![Map View - Landmark Quick-Select](images\WhatsApp Image 2026-04-05 at 10.01.01 PM.jpeg)
+![Map View - Landmark Quick-Select](images/WhatsApp_Image_2026-04-05_at_10.01.01_PM.jpeg)
 
 ### Routes — Guardian Path vs Standard Path Comparison
 Side-by-side comparison of the safety-optimised **Guardian Path** (score 85, distance 15.13 km) against the **Standard Path** (score 74, distance 14.45 km), with overall safety gain (+14.9%) and distance overhead (+4.7%) summarised at the bottom.
 
-![Route Comparison](images\WhatsApp Image 2026-04-05 at 10.01.14 PM.jpeg)
+![Route Comparison](images/WhatsApp_Image_2026-04-05_at_10.01.14_PM.jpeg)
 
 ### Routes — Guardian Path Selected
 The Guardian Path card highlighted after selection, showing safety score, distance, and incident risk at a glance, with a "Deep Safety Analysis" link for further drill-down.
 
-![Guardian Path Selected](images\WhatsApp Image 2026-04-05 at 10.01.34 PM.jpeg)
+![Guardian Path Selected](images/WhatsApp_Image_2026-04-05_at_10.01.34_PM.jpeg)
 
 ### Analytics — Safety Analytics Dashboard
 Live safety score distribution across all 3,93,139 road segments in the Bangalore OSM graph, broken into Day and Night distributions with mean, standard deviation, and skewness statistics.
 
-![Safety Analytics Dashboard](images\WhatsApp Image 2026-04-05 at 10.01.58 PM.jpeg)
+![Safety Analytics Dashboard](images/WhatsApp_Image_2026-04-05_at_10.01.58_PM.jpeg)
 
 ### Analytics — Night Safety Distribution & Area Scores
 Night-mode safety histogram (mean 0.4444) alongside per-area safety scores for key Bangalore neighbourhoods, colour-coded from red (high risk) to green (safer).
 
-![Night Safety Distribution](images\WhatsApp Image 2026-04-05 at 10.02.11 PM.jpeg)
+![Night Safety Distribution](images/WhatsApp_Image_2026-04-05_at_10.02.11_PM.jpeg)
 
 ### Analytics — Area Safety Scores Detail
 Expanded area-level breakdown showing safety percentages and incident risk for Electronic City, Hebbal, Indiranagar, Jayanagar, Koramangala, M.G. Road, Whitefield, and Yeshwanthpur.
 
-![Area Safety Scores](images\WhatsApp Image 2026-04-05 at 10.02.20 PM.jpeg)
+![Area Safety Scores](images/WhatsApp_Image_2026-04-05_at_10.02.20_PM.jpeg)
 
 ### Analytics — Current Route Stats Panel
 Detailed stats for the active route: Guardian distance vs standard distance, average safety score, incident risk, safety gain, and routing mode — all in one panel.
 
-![Current Route Stats](images\WhatsApp Image 2026-04-05 at 10.02.27 PM.jpeg)
+![Current Route Stats](images/WhatsApp_Image_2026-04-05_at_10.02.27_PM.jpeg)
 
 ### Settings — Guardian Settings (Routing Mode & Path Avoidance)
 Configure routing mode (Auto / Night / Day) and toggle path-avoidance rules: Avoid Alleys, Avoid Unlit Parks, Avoid Industrial zones, and Avoid Congestion.
 
-![Guardian Settings - Routing Mode](images\WhatsApp Image 2026-04-05 at 10.02.48 PM.jpeg)
+![Guardian Settings - Routing Mode](images/WhatsApp_Image_2026-04-05_at_10.02.48_PM.jpeg)
 
 ### Settings — Cost Function Weights & API Endpoint
 Adjust the Safety Weight (β) slider to shift routing from speed-first to safety-first. Also configure a custom FastAPI backend URL for self-hosted deployments.
 
-![Settings - Cost Function Weights](images\WhatsApp Image 2026-04-05 at 10.03.04 PM.jpeg)
+![Settings - Cost Function Weights](images/WhatsApp_Image_2026-04-05_at_10.03.04_PM.jpeg)
 
 ### AI Assistant — Natural Language Route Request
 Type or speak a natural-language query (e.g. *"Find a safe route from Indiranagar to Koramangala and alert me of any recent crimes"*). The LangGraph supervisor parses intent and orchestrates route computation + incident search in parallel.
 
-![AI Assistant - Route Request](images\WhatsApp Image 2026-04-05 at 10.03.21 PM.jpeg)
+![AI Assistant - Route Request](images/WhatsApp_Image_2026-04-05_at_10.03.21_PM.jpeg)
 
 ### AI Assistant — Safety Explanation Response
 The AI explains why a route is safe in plain language, citing SHAP-derived feature weights: street lighting (lamp_norm, weight 0.4) and activity levels (activity_composite, weight 0.3) dominate the safety score.
 
-![AI Assistant - Safety Explanation](images\WhatsApp Image 2026-04-05 at 10.05.08 PM.jpeg)
+![AI Assistant - Safety Explanation](images/WhatsApp_Image_2026-04-05_at_10.05.08_PM.jpeg)
 
 ### AI Assistant — Scrolled Explanation View
 Continued explanation showing incident risk (weight 0.2) and police presence bonus (weight 0.1), with the route map visible alongside the chat.
 
-![AI Assistant - Full Explanation](images\WhatsApp Image 2026-04-05 at 10.05.17 PM.jpeg)
+![AI Assistant - Full Explanation](images/WhatsApp_Image_2026-04-05_at_10.05.17_PM.jpeg)
 
 ### SOS — Emergency Alert Modal
 One-tap SOS button (bottom-left of every screen) triggers an Emergency Alert modal with options to **Call 112** or **Share My Location** with emergency contacts.
 
-![SOS Emergency Alert](images\WhatsApp Image 2026-04-05 at 10.03.34 PM.jpeg)
+![SOS Emergency Alert](images/WhatsApp_Image_2026-04-05_at_10.03.34_PM.jpeg)
 
 ### Multi-Stop Routing — Waypoint Support
 Add up to 3 intermediate stops on a single journey. Here: Indiranagar → A1 Dry Cleaners (waypoint) → Whitefield, with the full Guardian Route rendered on the map.
 
-![Multi-Stop Routing](images\WhatsApp Image 2026-04-05 at 10.07.03 PM.jpeg)
+![Multi-Stop Routing](images/WhatsApp_Image_2026-04-05_at_10.07.03_PM.jpeg)
 
 ---
 
