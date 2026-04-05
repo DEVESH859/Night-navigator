@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y wget git gcc g++ libgdal-dev && rm -rf 
 RUN useradd -m -u 1000 user
 USER user
 ENV HOME=/home/user \
-	PATH=/home/user/.local/bin:$PATH
+	PATH=/home/user/.local/bin:$PATH \
+	PYTHONUNBUFFERED=1 \
+	PORT=8000
 
 WORKDIR $HOME/app
 
@@ -31,9 +33,8 @@ RUN gdown --id 125LFc55i-2wGkVYiTaUwz0W0ozeW_qw2 -O data/bangalore_graph.graphml
 # Copy the rest of the application
 COPY --chown=user . .
 
-# Hugging Face Spaces exposes port 7860 to the public by default
-ENV PORT=7860
-EXPOSE 7860
+# Railway injects PORT at runtime; keep a sensible local default.
+EXPOSE 8000
 
 # Start the FastAPI backend
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

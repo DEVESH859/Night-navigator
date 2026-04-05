@@ -355,11 +355,34 @@ def call_route_api(state: RouteState):
     }
 
     # Try multiple ports in order — whichever uvicorn is alive wins
-    CANDIDATE_PORTS = [8001, 8000, 8002]
+    try:
+        # Prefer an in-process call when the API and agent runtime share the same app.
+        from api.main import RouteRequest, build_route_response
+
+        print("[ROUTE] Trying in-process route execution ...")
+        req = RouteRequest(**payload)
+        return {"api_response": build_route_response(req)}
+    except Exception as e:
+        detail = getattr(e, "detail", str(e))
+        print(f"[ROUTE] In-process route failed: {detail}")
+
+    candidate_urls = []
+    internal_base = os.getenv("NIGHT_NAVIGATOR_INTERNAL_BASE_URL", "").strip().rstrip("/")
+    if internal_base:
+        candidate_urls.append(f"{internal_base}/route")
+
+    runtime_port = os.getenv("PORT", "").strip()
+    if runtime_port.isdigit():
+        candidate_urls.append(f"http://127.0.0.1:{runtime_port}/route")
+
+    for port in ("8001", "8000", "8002"):
+        candidate_urls.append(f"http://127.0.0.1:{port}/route")
+
+    candidate_urls = list(dict.fromkeys(candidate_urls))
     last_error = ""
 
-    for port in CANDIDATE_PORTS:
-        url = f"http://127.0.0.1:{port}/route"
+    for url in candidate_urls:
+        port = url
         try:
             print(f"[ROUTE] Trying {url} …")
             response = requests.post(url, json=payload, timeout=60)
@@ -385,7 +408,7 @@ def call_route_api(state: RouteState):
             last_error = str(e)
             continue
 
-    return {"error": f"Route API unreachable on all ports ({', '.join(str(p) for p in CANDIDATE_PORTS)}). Last error: {last_error}"}
+    return {"error": f"Route API unreachable on all candidates. Last error: {last_error}"}
 
 
 def generate_summary(state: RouteState):

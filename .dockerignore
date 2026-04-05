@@ -1,0 +1,16 @@
+.git
+.env
+__pycache__/
+*.pyc
+cache/
+evaluation/
+feature_engineering/
+preprocessing/
+routing/
+api/__pycache__/
+agents/__pycache__/
+models/*.pkl
+data/*
+!data/traffic_area_scores.csv
+*.pdf
+*.docx

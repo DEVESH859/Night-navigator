@@ -23,6 +23,7 @@ import json
 import time
 import warnings
 from datetime import datetime
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
@@ -35,17 +36,19 @@ from scipy import stats as scipy_stats
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from api.agents_router import agents_router
 
 warnings.filterwarnings("ignore")
 
-_BASE       = os.path.join(os.path.dirname(__file__), "..")
-DATA_DIR    = os.path.abspath(os.path.join(_BASE, "data"))
-GRAPH_FILE  = os.path.join(DATA_DIR, "bangalore_graph.graphml")
-EDGES_FILE  = os.path.join(DATA_DIR, "edges_with_safety.geojson")
-TRAFFIC_CSV = os.path.join(DATA_DIR, "traffic_area_scores.csv")
+_BASE        = Path(__file__).resolve().parent.parent
+DATA_DIR     = _BASE / "data"
+FRONTEND_DIR = _BASE / "frontend"
+GRAPH_FILE   = DATA_DIR / "bangalore_graph.graphml"
+EDGES_FILE   = DATA_DIR / "edges_with_safety.geojson"
+TRAFFIC_CSV  = DATA_DIR / "traffic_area_scores.csv"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # STEP 2 — APP SETUP AND CORS
@@ -90,11 +93,11 @@ async def startup_event():
     global G, edges_df, traffic_df, diag_cache, MAX_LENGTH
 
     print("[STARTUP] Loading graph …")
-    G = ox.load_graphml(GRAPH_FILE)
+    G = ox.load_graphml(str(GRAPH_FILE))
     print(f"[OK] Nodes={G.number_of_nodes():,}  Edges={G.number_of_edges():,}")
 
     print("[STARTUP] Loading safety edges …")
-    edges_df = gpd.read_file(EDGES_FILE)
+    edges_df = gpd.read_file(str(EDGES_FILE))
     print(f"[OK] Safety edges: {len(edges_df):,}")
 
     # ── Assign safety scores to graph edges ──────────────────────────────────
@@ -143,7 +146,7 @@ async def startup_event():
     print("[STARTUP] Graph ready.")
 
     # ── Load traffic scores ───────────────────────────────────────────────────
-    if os.path.exists(TRAFFIC_CSV):
+    if TRAFFIC_CSV.exists():
         traffic_df = pd.read_csv(TRAFFIC_CSV)
         print(f"[OK] Traffic scores: {len(traffic_df)} areas")
     else:
@@ -289,8 +292,7 @@ def health():
 
 # ── POST /route ───────────────────────────────────────────────────────────────
 
-@app.post("/route")
-def route(req: RouteRequest):
+def build_route_response(req: RouteRequest):
     """
     Compute both the shortest-distance path and the safest A* path.
     Supports up to 3 intermediate waypoints — stitches per-leg paths.
@@ -370,6 +372,11 @@ def route(req: RouteRequest):
         raise HTTPException(500, f"Routing failed: {str(e)}")
 
 
+@app.post("/route")
+def route(req: RouteRequest):
+    return build_route_response(req)
+
+
 # ── GET /safety-map ───────────────────────────────────────────────────────────
 
 @app.get("/safety-map")
@@ -433,6 +440,10 @@ def diagnostics():
         raise HTTPException(503, "Diagnostics not ready")
     return diag_cache
 
+
+if FRONTEND_DIR.is_dir():
+    app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
+
 # ──────────────────────────────────────────────────────────────────────────────
 # STEP 8 — RUN
 # ──────────────────────────────────────────────────────────────────────────────
@@ -442,6 +453,6 @@ if __name__ == "__main__":
     uvicorn.run(
         "api.main:app",
         host="0.0.0.0",
-        port=8001,
+        port=int(os.getenv("PORT", "8001")),
         reload=False,   # use reload=True only for dev — slow with large graph
     )

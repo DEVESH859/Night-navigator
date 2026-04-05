@@ -13,8 +13,36 @@
 
 'use strict';
 
+function normalizeApiBase(value) {
+  return String(value || '').trim().replace(/\/+$/, '');
+}
+
+function currentOriginBase() {
+  if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+    return normalizeApiBase(window.location.origin);
+  }
+  return '';
+}
+
+function shouldReplaceLegacyLocalApi(apiBase) {
+  const normalized = normalizeApiBase(apiBase);
+  const sameOrigin = currentOriginBase();
+  return Boolean(
+    sameOrigin &&
+    normalized &&
+    normalized !== sameOrigin &&
+    /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(normalized)
+  );
+}
+
+function computeDefaultApiBase() {
+  const stored = normalizeApiBase(localStorage.getItem('nn_api_url'));
+  if (stored && !shouldReplaceLegacyLocalApi(stored)) return stored;
+  return currentOriginBase() || 'http://localhost:8001';
+}
+
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
-const DEFAULT_API = localStorage.getItem('nn_api_url') || 'http://localhost:8001';
+const DEFAULT_API = computeDefaultApiBase();
 const BLR_CENTER = [12.9716, 77.5946];
 const BLR_BBOX = '77.38,12.77,77.78,13.18';
 
@@ -730,7 +758,7 @@ function onBetaChange(val) {
 }
 
 function saveSettings() {
-  S.settings.apiUrl = document.getElementById('api-url-input').value.trim() || DEFAULT_API;
+  S.settings.apiUrl = normalizeApiBase(document.getElementById('api-url-input').value) || DEFAULT_API;
   S.apiBase = S.settings.apiUrl;
   localStorage.setItem('nn_settings', JSON.stringify(S.settings));
   localStorage.setItem('nn_api_url', S.settings.apiUrl);
@@ -742,7 +770,11 @@ function saveSettings() {
 function loadSettings() {
   const raw = localStorage.getItem('nn_settings');
   if (raw) try { Object.assign(S.settings, JSON.parse(raw)); } catch { }
-  S.apiBase = S.settings.apiUrl || DEFAULT_API;
+  if (shouldReplaceLegacyLocalApi(S.settings.apiUrl)) {
+    S.settings.apiUrl = DEFAULT_API;
+  }
+  S.apiBase = normalizeApiBase(S.settings.apiUrl) || DEFAULT_API;
+  S.settings.apiUrl = S.apiBase;
   const urlEl = document.getElementById('api-url-input');
   if (urlEl) urlEl.value = S.apiBase;
   const slider = document.getElementById('beta-slider');
@@ -755,10 +787,11 @@ function loadSettings() {
 
 function resetSettings() {
   localStorage.removeItem('nn_settings');
+  localStorage.removeItem('nn_api_url');
   S.settings = {
     modeOverride: 'auto', avoidAlleys: true, avoidParks: false,
     avoidIndustrial: true, avoidCongestion: false, beta: 0.50,
-    apiUrl: 'http://localhost:8001',
+    apiUrl: DEFAULT_API,
   };
   loadSettings();
   toast('Reset to defaults', 'inf');
