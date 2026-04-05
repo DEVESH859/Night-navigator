@@ -7,6 +7,9 @@ ENV/
 env/
 .DS_Store
 .ipynb_checkpoints
+cache/
+*.pdf
+*.docx
 
 # Ignore massive raw data files (GitHub 100MB limit)
 # We allow bangalore_graph.graphml and .pkl files via Git LFS
