@@ -1,0 +1,369 @@
+{
+  "aggregate_metrics": {
+    "valid_pairs": 20,
+    "avg_safety_gain_pct": 22.715,
+    "avg_dist_overhead_pct": 34.305,
+    "route_quality_score": 0.6621,
+    "pct_safer_also_shorter": 0.0,
+    "avg_t_short_ms": 1343.41,
+    "avg_t_safe_ms": 1607.56
+  },
+  "od_pair_results": [
+    {
+      "pair_id": 0,
+      "shortest_distance": 6238.4,
+      "safest_distance": 13173.5,
+      "shortest_safety": 0.2621,
+      "safest_safety": 0.5916,
+      "shortest_incident": 0.6482,
+      "safest_incident": 0.6482,
+      "safety_gain_pct": 125.72,
+      "dist_overhead_pct": 111.17,
+      "t_short_ms": 563.2,
+      "t_safe_ms": 1052.9,
+      "status": "ok"
+    },
+    {
+      "pair_id": 1,
+      "shortest_distance": 11745.1,
+      "safest_distance": 14637.2,
+      "shortest_safety": 0.8445,
+      "safest_safety": 0.9049,
+      "shortest_incident": 0.9283,
+      "safest_incident": 0.8982,
+      "safety_gain_pct": 7.15,
+      "dist_overhead_pct": 24.62,
+      "t_short_ms": 1024.2,
+      "t_safe_ms": 894.1,
+      "status": "ok"
+    },
+    {
+      "pair_id": 2,
+      "shortest_distance": 9592.4,
+      "safest_distance": 10660.7,
+      "shortest_safety": 0.732,
+      "safest_safety": 0.8084,
+      "shortest_incident": 0.2802,
+      "safest_incident": 0.2802,
+      "safety_gain_pct": 10.44,
+      "dist_overhead_pct": 11.14,
+      "t_short_ms": 1337.7,
+      "t_safe_ms": 870.7,
+      "status": "ok"
+    },
+    {
+      "pair_id": 3,
+      "shortest_distance": 24595.1,
+      "safest_distance": 31106.6,
+      "shortest_safety": 0.7637,
+      "safest_safety": 0.8558,
+      "shortest_incident": 0.6964,
+      "safest_incident": 0.6393,
+      "safety_gain_pct": 12.06,
+      "dist_overhead_pct": 26.47,
+      "t_short_ms": 1289.4,
+      "t_safe_ms": 1275.7,
+      "status": "ok"
+    },
+    {
+      "pair_id": 4,
+      "shortest_distance": 4784.1,
+      "safest_distance": 5148.8,
+      "shortest_safety": 0.9106,
+      "safest_safety": 0.9345,
+      "shortest_incident": 0.2802,
+      "safest_incident": 0.2802,
+      "safety_gain_pct": 2.62,
+      "dist_overhead_pct": 7.62,
+      "t_short_ms": 909.6,
+      "t_safe_ms": 1273.2,
+      "status": "ok"
+    },
+    {
+      "pair_id": 5,
+      "shortest_distance": 10560.0,
+      "safest_distance": 15215.5,
+      "shortest_safety": 0.7085,
+      "safest_safety": 0.803,
+      "shortest_incident": 0.2802,
+      "safest_incident": 0.2802,
+      "safety_gain_pct": 13.34,
+      "dist_overhead_pct": 44.09,
+      "t_short_ms": 997.4,
+      "t_safe_ms": 1304.4,
+      "status": "ok"
+    },
+    {
+      "pair_id": 6,
+      "shortest_distance": 28654.3,
+      "safest_distance": 31750.2,
+      "shortest_safety": 0.7608,
+      "safest_safety": 0.7981,
+      "shortest_incident": 0.7981,
+      "safest_incident": 0.5951,
+      "safety_gain_pct": 4.9,
+      "dist_overhead_pct": 10.8,
+      "t_short_ms": 1320.3,
+      "t_safe_ms": 887.0,
+      "status": "ok"
+    },
+    {
+      "pair_id": 7,
+      "shortest_distance": 22630.4,
+      "safest_distance": 30208.4,
+      "shortest_safety": 0.5437,
+      "safest_safety": 0.8451,
+      "shortest_incident": 0.6076,
+      "safest_incident": 0.7154,
+      "safety_gain_pct": 55.43,
+      "dist_overhead_pct": 33.49,
+      "t_short_ms": 1640.5,
+      "t_safe_ms": 3583.6,
+      "status": "ok"
+    },
+    {
+      "pair_id": 8,
+      "shortest_distance": 20170.3,
+      "safest_distance": 24010.1,
+      "shortest_safety": 0.7053,
+      "safest_safety": 0.8984,
+      "shortest_incident": 0.7963,
+      "safest_incident": 0.7334,
+      "safety_gain_pct": 27.38,
+      "dist_overhead_pct": 19.04,
+      "t_short_ms": 1647.3,
+      "t_safe_ms": 985.6,
+      "status": "ok"
+    },
+    {
+      "pair_id": 9,
+      "shortest_distance": 18664.9,
+      "safest_distance": 21906.3,
+      "shortest_safety": 0.7674,
+      "safest_safety": 0.9106,
+      "shortest_incident": 0.6367,
+      "safest_incident": 0.6658,
+      "safety_gain_pct": 18.66,
+      "dist_overhead_pct": 17.37,
+      "t_short_ms": 1653.7,
+      "t_safe_ms": 887.9,
+      "status": "ok"
+    },
+    {
+      "pair_id": 10,
+      "shortest_distance": 19212.3,
+      "safest_distance": 24344.3,
+      "shortest_safety": 0.722,
+      "safest_safety": 0.8497,
+      "shortest_incident": 0.5055,
+      "safest_incident": 0.6017,
+      "safety_gain_pct": 17.69,
+      "dist_overhead_pct": 26.71,
+      "t_short_ms": 1175.9,
+      "t_safe_ms": 7328.5,
+      "status": "ok"
+    },
+    {
+      "pair_id": 11,
+      "shortest_distance": 14243.2,
+      "safest_distance": 14699.9,
+      "shortest_safety": 0.4025,
+      "safest_safety": 0.5116,
+      "shortest_incident": 0.7256,
+      "safest_incident": 0.7256,
+      "safety_gain_pct": 27.11,
+      "dist_overhead_pct": 3.21,
+      "t_short_ms": 993.5,
+      "t_safe_ms": 2093.8,
+      "status": "ok"
+    },
+    {
+      "pair_id": 12,
+      "shortest_distance": 14913.1,
+      "safest_distance": 17553.5,
+      "shortest_safety": 0.7377,
+      "safest_safety": 0.9286,
+      "shortest_incident": 0.9197,
+      "safest_incident": 0.9126,
+      "safety_gain_pct": 25.88,
+      "dist_overhead_pct": 17.71,
+      "t_short_ms": 1241.7,
+      "t_safe_ms": 910.4,
+      "status": "ok"
+    },
+    {
+      "pair_id": 13,
+      "shortest_distance": 10025.7,
+      "safest_distance": 14521.0,
+      "shortest_safety": 0.7173,
+      "safest_safety": 0.8246,
+      "shortest_incident": 0.5677,
+      "safest_incident": 0.4456,
+      "safety_gain_pct": 14.96,
+      "dist_overhead_pct": 44.84,
+      "t_short_ms": 1522.9,
+      "t_safe_ms": 988.8,
+      "status": "ok"
+    },
+    {
+      "pair_id": 14,
+      "shortest_distance": 6089.7,
+      "safest_distance": 7720.7,
+      "shortest_safety": 0.6862,
+      "safest_safety": 0.9009,
+      "shortest_incident": 0.9193,
+      "safest_incident": 0.9591,
+      "safety_gain_pct": 31.29,
+      "dist_overhead_pct": 26.78,
+      "t_short_ms": 1774.5,
+      "t_safe_ms": 1037.1,
+      "status": "ok"
+    },
+    {
+      "pair_id": 15,
+      "shortest_distance": 18158.1,
+      "safest_distance": 25299.9,
+      "shortest_safety": 0.7098,
+      "safest_safety": 0.8211,
+      "shortest_incident": 0.7611,
+      "safest_incident": 0.7817,
+      "safety_gain_pct": 15.68,
+      "dist_overhead_pct": 39.33,
+      "t_short_ms": 1498.7,
+      "t_safe_ms": 1717.4,
+      "status": "ok"
+    },
+    {
+      "pair_id": 16,
+      "shortest_distance": 2479.3,
+      "safest_distance": 4534.0,
+      "shortest_safety": 0.5953,
+      "safest_safety": 0.5824,
+      "shortest_incident": 0.2802,
+      "safest_incident": 0.2802,
+      "safety_gain_pct": -2.17,
+      "dist_overhead_pct": 82.87,
+      "t_short_ms": 998.1,
+      "t_safe_ms": 983.8,
+      "status": "ok"
+    },
+    {
+      "pair_id": 17,
+      "shortest_distance": 19780.7,
+      "safest_distance": 33061.8,
+      "shortest_safety": 0.6908,
+      "safest_safety": 0.735,
+      "shortest_incident": 0.7601,
+      "safest_incident": 0.7542,
+      "safety_gain_pct": 6.4,
+      "dist_overhead_pct": 67.14,
+      "t_short_ms": 1843.3,
+      "t_safe_ms": 984.3,
+      "status": "ok"
+    },
+    {
+      "pair_id": 18,
+      "shortest_distance": 21344.4,
+      "safest_distance": 27296.0,
+      "shortest_safety": 0.8416,
+      "safest_safety": 0.8939,
+      "shortest_incident": 0.5829,
+      "safest_incident": 0.6931,
+      "safety_gain_pct": 6.21,
+      "dist_overhead_pct": 27.88,
+      "t_short_ms": 1885.5,
+      "t_safe_ms": 1050.7,
+      "status": "ok"
+    },
+    {
+      "pair_id": 19,
+      "shortest_distance": 9695.5,
+      "safest_distance": 13943.8,
+      "shortest_safety": 0.3896,
+      "safest_safety": 0.5203,
+      "shortest_incident": 0.7256,
+      "safest_incident": 0.7256,
+      "safety_gain_pct": 33.55,
+      "dist_overhead_pct": 43.82,
+      "t_short_ms": 1550.8,
+      "t_safe_ms": 2041.3,
+      "status": "ok"
+    }
+  ],
+  "ablation_table": [
+    {
+      "feature_removed": "pedestrian_norm",
+      "avg_safety": 0.3284,
+      "skewness": 0.4261,
+      "delta_vs_full": -0.1184
+    },
+    {
+      "feature_removed": "incident_risk",
+      "avg_safety": 0.3399,
+      "skewness": 0.2763,
+      "delta_vs_full": -0.1069
+    },
+    {
+      "feature_removed": "activity_composite",
+      "avg_safety": 0.3205,
+      "skewness": 0.4155,
+      "delta_vs_full": -0.1263
+    },
+    {
+      "feature_removed": "police_bonus",
+      "avg_safety": 0.3297,
+      "skewness": 0.4147,
+      "delta_vs_full": -0.1172
+    },
+    {
+      "feature_removed": "lamp_norm",
+      "avg_safety": 0.2564,
+      "skewness": 0.8087,
+      "delta_vs_full": -0.1904
+    },
+    {
+      "feature_removed": "poi_norm",
+      "avg_safety": 0.3394,
+      "skewness": 0.4087,
+      "delta_vs_full": -0.1074
+    },
+    {
+      "feature_removed": "road_importance",
+      "avg_safety": 0.3078,
+      "skewness": 0.5374,
+      "delta_vs_full": -0.139
+    }
+  ],
+  "distribution_stats": {
+    "safety_score": {
+      "mean": 0.4468,
+      "std": 0.2481,
+      "min": 0.01,
+      "max": 0.99,
+      "skewness": 0.1822,
+      "kurtosis": -0.663,
+      "bucket_pct": {
+        "0.0-0.2": 18.73,
+        "0.2-0.4": 24.53,
+        "0.4-0.6": 28.86,
+        "0.6-0.8": 18.9,
+        "0.8-1.0": 8.98
+      }
+    },
+    "safety_score_night": {
+      "mean": 0.4444,
+      "std": 0.2456,
+      "min": 0.01,
+      "max": 0.99,
+      "skewness": 0.2159,
+      "kurtosis": -0.613,
+      "bucket_pct": {
+        "0.0-0.2": 18.14,
+        "0.2-0.4": 27.34,
+        "0.4-0.6": 27.27,
+        "0.6-0.8": 18.3,
+        "0.8-1.0": 8.96
+      }
+    }
+  }
+}

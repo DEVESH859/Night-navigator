@@ -1,0 +1,9 @@
+[
+  "poi_norm",
+  "lamp_norm",
+  "road_importance",
+  "pedestrian_norm",
+  "activity_composite",
+  "incident_risk",
+  "police_bonus"
+]

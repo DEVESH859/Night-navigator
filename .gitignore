@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+ENV/
+env/
+.DS_Store
+.ipynb_checkpoints
+
+# Ignore massive data files (GitHub 100MB limit)
+data/bangalore_graph.graphml
+data/edges.geojson
+data/edges_with_safety.geojson
+data/pois.geojson
+*.pkl 

@@ -1,0 +1,20 @@
+{
+  "mode": "day",
+  "pairs": [
+    {
+      "name": "Custom (12.9074,77.6179) → (12.9122,77.6400)",
+      "shortest": {
+        "distance_m": 3307.6,
+        "avg_safety": 0.6181,
+        "avg_incident": 0.9834
+      },
+      "safest": {
+        "distance_m": 5887.2,
+        "avg_safety": 0.7701,
+        "avg_incident": 0.9834
+      },
+      "safety_gain_pct": 24.59,
+      "distance_overhead_pct": 77.99
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Safety Analytics | Neon Guardian Navigator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #0a0e18;
+        }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel {
+            background: rgba(32, 37, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 15px rgba(168, 255, 225, 0.15);
+        }
+        .pulse-animation {
+            box-shadow: 0 0 0 0 rgba(0, 252, 202, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 252, 202, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 252, 202, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 252, 202, 0); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#4e6300",
+                      "on-surface-variant": "#a7aab9",
+                      "inverse-on-surface": "#515561",
+                      "on-secondary-fixed": "#354500",
+                      "surface-container-highest": "#202534",
+                      "on-tertiary-fixed": "#39000c",
+                      "secondary-fixed-dim": "#b7e500",
+                      "error-container": "#9f0519",
+                      "surface-bright": "#262c3c",
+                      "on-secondary": "#455900",
+                      "surface-container-high": "#1a1f2d",
+                      "secondary-fixed": "#c3f400",
+                      "error": "#ff716c",
+                      "surface": "#0a0e18",
+                      "tertiary-fixed-dim": "#ff7989",
+                      "on-secondary-container": "#efffbc",
+                      "secondary-dim": "#b7e500",
+                      "on-primary-fixed": "#004535",
+                      "tertiary-dim": "#e7004c",
+                      "surface-tint": "#a8ffe1",
+                      "surface-container": "#151926",
+                      "tertiary-fixed": "#ff909b",
+                      "on-error": "#490006",
+                      "background": "#0a0e18",
+                      "on-error-container": "#ffa8a3",
+                      "primary-fixed-dim": "#00eabb",
+                      "on-primary-container": "#005b47",
+                      "primary": "#a8ffe1",
+                      "outline-variant": "#444854",
+                      "outline": "#727582",
+                      "error-dim": "#d7383b",
+                      "on-tertiary-container": "#000000",
+                      "on-surface": "#e5e7f6",
+                      "on-primary": "#00654f",
+                      "inverse-primary": "#006c55",
+                      "primary-fixed": "#00f9c7",
+                      "primary-container": "#00fcca",
+                      "on-tertiary": "#490012",
+                      "surface-container-lowest": "#000000",
+                      "secondary-container": "#506600",
+                      "secondary": "#c3f400",
+                      "on-background": "#e5e7f6",
+                      "surface-dim": "#0a0e18",
+                      "primary-dim": "#00eabb",
+                      "inverse-surface": "#faf8ff",
+                      "on-primary-fixed-variant": "#00644f",
+                      "surface-variant": "#202534",
+                      "on-tertiary-fixed-variant": "#780023",
+                      "surface-container-low": "#0f131e",
+                      "tertiary-container": "#ff0355",
+                      "tertiary": "#ff6e81"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Be Vietnam Pro"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          }
+        }
+    </script>
+</head>
+<body class="text-on-surface overflow-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-slate-950/60 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-emerald-400 drop-shadow-[0_0_8px_rgba(0,255,204,0.4)] font-headline uppercase tracking-wider">Neon Guardian Navigator</span>
+<nav class="hidden md:flex gap-8">
+<a class="text-slate-400 hover:text-emerald-100 transition-colors font-headline font-bold uppercase tracking-wider" href="#">Map</a>
+<a class="text-slate-400 hover:text-emerald-100 transition-colors font-headline font-bold uppercase tracking-wider" href="#">Routes</a>
+<a class="text-emerald-300 border-b-2 border-emerald-400 pb-1 font-headline font-bold uppercase tracking-wider" href="#">Analytics</a>
+<a class="text-slate-400 hover:text-emerald-100 transition-colors font-headline font-bold uppercase tracking-wider" href="#">Guardian Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-800/50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-800/50 rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation Anchor -->
+<aside class="fixed left-0 top-0 h-full w-24 bg-slate-900/80 backdrop-blur-2xl shadow-[10px_0_30px_rgba(0,0,0,0.4)] flex flex-col items-center py-24 gap-8 z-40 rounded-r-3xl">
+<div class="flex flex-col items-center gap-1 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/30">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="profile portrait of a tech-savvy user with neon reflections on skin and glasses high tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkfW6Ice4xhF1Pfs28QZUqbH18lb9la09L2SiIr3ycN94qkSe8qlo7m8kHwLzaP7G4rVbGF7UHpvXaA9TbNtBpeYbmBC8Qln4ZXW1UmW3YqaR20hE1IKewqnTRnsWHM8XKY8P46aVQtI1ikgQu-ALKWJV2h6Fq0pcnvPheG85BmdUVBDJix043p4jKQkMBECPd76gnxzmKXtGiycOk4ub6G45WJzEPbfYdQdvh5y4Dlfq3GeVjqyZqG8DLuzUBp15lKc5K2Am0gcc"/>
+</div>
+</div>
+<button class="text-slate-500 p-4 hover:text-emerald-200 transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+<button class="text-slate-500 p-4 hover:text-emerald-200 transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+</button>
+<button class="bg-emerald-500/20 text-emerald-400 rounded-full p-4 shadow-[0_0_15px_rgba(0,255,204,0.2)] hover:text-emerald-200 transition-all">
+<span class="material-symbols-outlined" data-icon="insights" style="font-variation-settings: 'FILL' 1;">insights</span>
+</button>
+<button class="text-slate-500 p-4 hover:text-emerald-200 transition-all hover:translate-x-1">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="mt-auto pb-8">
+<button class="w-14 h-14 bg-error-container text-on-error-container rounded-full flex items-center justify-center font-headline font-bold text-[10px] text-center p-1 shadow-[0_0_20px_rgba(255,113,108,0.3)] hover:scale-105 active:scale-95 transition-all">
+                SOS
+            </button>
+</div>
+</aside>
+<main class="ml-24 pt-20 h-screen relative flex overflow-hidden">
+<!-- Background Map (Canvas) -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10 w-1/2 pointer-events-none"></div>
+<div class="w-full h-full" data-alt="dark stylized night map of a metropolitan city with glowing cyan and magenta traffic arteries and digital data overlays" data-location="Tokyo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjQkb-mFl7U0mgm0ZWMf87nyBiRvXg8SFzyVM9zUtWYdPH8qUKmlMCrmpkNJvm423Z2JAmO986E-29Lbo21GwakPZoG-2tmOYA_m1eOhA0tRHmcGnhHpyUfsIGXGFwdjt7EI72XLcxWRv3ckXminSMT-V9AjZ_7kKDiYQUqcbi2jJHs9SLWQuLiJ7p3l2r3CFuYcge4Ozyu1WDlbW0LqhgYVHUQYJOIjpJm3fJLeqQkm1zFsDh5d3lGKP8zrWN3nH8ClTnY1VzSdw'); background-size: cover; background-position: center;">
+<!-- Glowing Cyan Route SVG Overlay Simulation -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-60" viewbox="0 0 1000 1000">
+<path class="drop-shadow-[0_0_12px_rgba(0,252,202,0.8)]" d="M200,800 Q400,750 500,500 T800,200" fill="none" stroke="#00fcca" stroke-linecap="round" stroke-width="8"></path>
+<circle cx="200" cy="800" fill="#00fcca" r="10"></circle>
+<circle cx="800" cy="200" fill="#00fcca" r="10"></circle>
+</svg>
+</div>
+</div>
+<!-- Left Deep-Dive Panel -->
+<section class="relative z-20 w-[480px] h-[calc(100vh-80px)] glass-panel border-r border-outline-variant/10 p-8 overflow-y-auto custom-scrollbar">
+<!-- Back Button -->
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 group">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline font-medium uppercase tracking-widest text-sm">Return to Routes</span>
+</button>
+<header class="mb-10">
+<h1 class="text-4xl font-headline font-bold text-on-surface mb-2">Safety Analytics</h1>
+<p class="text-on-surface-variant font-body">Detailed biometric and environmental risk assessment for <span class="text-primary-fixed">Route 12-Alpha</span>.</p>
+</header>
+<!-- Lighting Timeline -->
+<div class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-headline font-bold text-sm uppercase tracking-wider text-on-surface">Lighting Timeline (Lux)</h3>
+<span class="text-xs font-label text-primary-fixed">AVG: 420 LUX</span>
+</div>
+<div class="h-32 flex items-end justify-between gap-1 px-2 bg-surface-container-low/50 rounded-lg p-4">
+<!-- 12 Bars for Lux Levels -->
+<div class="w-full bg-primary-container rounded-t-sm opacity-40 h-[20%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-60 h-[45%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-80 h-[85%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm h-[95%] shadow-[0_0_8px_rgba(0,252,202,0.4)]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-70 h-[60%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-50 h-[30%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-80 h-[75%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-90 h-[90%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-40 h-[25%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm h-[100%] shadow-[0_0_8px_rgba(0,252,202,0.4)]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-70 h-[55%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm opacity-30 h-[15%]"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] font-label text-outline uppercase">
+<span>Departure</span>
+<span>Transit Midpoint</span>
+<span>Arrival</span>
+</div>
+</div>
+<!-- Heatmap Toggle -->
+<div class="bg-surface-container-high rounded-xl p-6 mb-8 flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase">Incident Heatmap</h4>
+<p class="text-xs text-on-surface-variant">Real-time overlay of reported safety events</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<!-- Stat Rows -->
+<div class="space-y-4 mb-10">
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="text-sm font-label text-[#64748B] uppercase tracking-widest">Foot Traffic Density</span>
+<div class="flex items-center gap-3">
+<span class="text-lg font-headline font-bold text-[#F8FAFC]">Moderate</span>
+<div class="w-3 h-3 rounded-full bg-primary pulse-animation"></div>
+</div>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="text-sm font-label text-[#64748B] uppercase tracking-widest">Safe Zone Proximity</span>
+<span class="text-lg font-headline font-bold text-[#F8FAFC]">140m / 3 Min</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="text-sm font-label text-[#64748B] uppercase tracking-widest">Patrol Frequency</span>
+<span class="text-lg font-headline font-bold text-[#F8FAFC]">Every 12 Mins</span>
+</div>
+<div class="flex justify-between items-center py-4 border-b border-outline-variant/10">
+<span class="text-sm font-label text-[#64748B] uppercase tracking-widest">Acoustic Risk Index</span>
+<span class="text-lg font-headline font-bold text-tertiary">Low (14dB)</span>
+</div>
+</div>
+<!-- Crowd Density Pulse Indicator -->
+<div class="bg-surface-container-highest/40 p-6 rounded-2xl border border-primary/10">
+<div class="flex items-center gap-4 mb-4">
+<div class="relative w-12 h-12">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
+<div class="absolute inset-0 bg-primary/40 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="groups">groups</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm uppercase">Crowd Density Pulse</h4>
+<p class="text-xs text-on-surface-variant italic">Live data from 1.4k active guardians</p>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="h-1 flex-1 bg-primary rounded-full"></div>
+<div class="h-1 flex-1 bg-primary rounded-full"></div>
+<div class="h-1 flex-1 bg-primary/30 rounded-full"></div>
+<div class="h-1 flex-1 bg-primary/10 rounded-full"></div>
+<div class="h-1 flex-1 bg-primary/10 rounded-full"></div>
+</div>
+<p class="text-[10px] mt-2 font-label text-outline uppercase tracking-tighter">Current Flow: Sub-Optimal but Secure</p>
+</div>
+</section>
+<!-- Floating Action Overlay (Map Controls) -->
+<div class="absolute bottom-10 right-10 z-30 flex flex-col gap-4">
+<button class="w-14 h-14 glass-panel text-primary rounded-full flex items-center justify-center shadow-2xl hover:bg-surface-bright transition-all active:scale-90 border border-primary/20">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+<button class="w-14 h-14 glass-panel text-primary rounded-full flex items-center justify-center shadow-2xl hover:bg-surface-bright transition-all active:scale-90 border border-primary/20">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+</div>
+<!-- Real-time Alert Notification (Small) -->
+<div class="absolute top-10 right-10 z-30 flex items-center gap-4 bg-tertiary/10 backdrop-blur-md px-6 py-4 rounded-full border border-tertiary/20 shadow-[0_0_30px_rgba(255,110,129,0.1)]">
+<div class="w-3 h-3 bg-tertiary rounded-full animate-pulse"></div>
+<span class="font-headline font-bold text-sm text-tertiary uppercase tracking-wider">Live Event: High Lux Variation Detected</span>
+</div>
+</main>
+<!-- Navigation suppression check: Since this is an analytics deep dive, side/top nav remain for context but simplified mobile nav would be hidden. -->
+</body></html>

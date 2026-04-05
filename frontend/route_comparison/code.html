@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neon Guardian Navigator - Route Comparison</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#4e6300",
+                        "on-surface-variant": "#a7aab9",
+                        "inverse-on-surface": "#515561",
+                        "on-secondary-fixed": "#354500",
+                        "surface-container-highest": "#202534",
+                        "on-tertiary-fixed": "#39000c",
+                        "secondary-fixed-dim": "#b7e500",
+                        "error-container": "#9f0519",
+                        "surface-bright": "#262c3c",
+                        "on-secondary": "#455900",
+                        "surface-container-high": "#1a1f2d",
+                        "secondary-fixed": "#c3f400",
+                        "error": "#ff716c",
+                        "surface": "#0a0e18",
+                        "tertiary-fixed-dim": "#ff7989",
+                        "on-secondary-container": "#efffbc",
+                        "secondary-dim": "#b7e500",
+                        "on-primary-fixed": "#004535",
+                        "tertiary-dim": "#e7004c",
+                        "surface-tint": "#a8ffe1",
+                        "surface-container": "#151926",
+                        "tertiary-fixed": "#ff909b",
+                        "on-error": "#490006",
+                        "background": "#0a0e18",
+                        "on-error-container": "#ffa8a3",
+                        "primary-fixed-dim": "#00eabb",
+                        "on-primary-container": "#005b47",
+                        "primary": "#a8ffe1",
+                        "outline-variant": "#444854",
+                        "outline": "#727582",
+                        "error-dim": "#d7383b",
+                        "on-tertiary-container": "#000000",
+                        "on-surface": "#e5e7f6",
+                        "on-primary": "#00654f",
+                        "inverse-primary": "#006c55",
+                        "primary-fixed": "#00f9c7",
+                        "primary-container": "#00fcca",
+                        "on-tertiary": "#490012",
+                        "surface-container-lowest": "#000000",
+                        "secondary-container": "#506600",
+                        "secondary": "#c3f400",
+                        "on-background": "#e5e7f6",
+                        "surface-dim": "#0a0e18",
+                        "primary-dim": "#00eabb",
+                        "inverse-surface": "#faf8ff",
+                        "on-primary-fixed-variant": "#00644f",
+                        "surface-variant": "#202534",
+                        "on-tertiary-fixed-variant": "#780023",
+                        "surface-container-low": "#0f131e",
+                        "tertiary-container": "#ff0355",
+                        "tertiary": "#ff6e81"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Space Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(20px); }
+        .guardian-path {
+            stroke-dasharray: 0;
+            filter: drop-shadow(0 0 8px rgba(0, 252, 202, 0.8));
+        }
+        .standard-path {
+            stroke-dasharray: 8 8;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-slate-950/60 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-emerald-400 drop-shadow-[0_0_8px_rgba(0,255,204,0.4)] font-space-grotesk uppercase tracking-wider">Neon Guardian Navigator</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-space-grotesk font-bold uppercase tracking-wider transition-colors text-slate-400 hover:text-emerald-100" href="#">Map</a>
+<a class="font-space-grotesk font-bold uppercase tracking-wider transition-colors text-emerald-300 border-b-2 border-emerald-400 pb-1" href="#">Routes</a>
+<a class="font-space-grotesk font-bold uppercase tracking-wider transition-colors text-slate-400 hover:text-emerald-100" href="#">Analytics</a>
+<a class="font-space-grotesk font-bold uppercase tracking-wider transition-colors text-slate-400 hover:text-emerald-100" href="#">Guardian Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="p-2 hover:bg-slate-800/50 rounded-full cursor-pointer transition-all active:scale-90">
+<span class="material-symbols-outlined text-emerald-400">notifications</span>
+</div>
+<div class="p-2 hover:bg-slate-800/50 rounded-full cursor-pointer transition-all active:scale-90">
+<span class="material-symbols-outlined text-emerald-400">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="flex h-screen pt-20">
+<!-- Sidebar: Comparison Drawer -->
+<aside class="w-[420px] bg-surface-container-low glass-panel z-40 flex flex-col p-6 gap-6 overflow-y-auto">
+<header>
+<h1 class="text-2xl font-headline font-bold text-on-surface">Route Comparison</h1>
+<p class="text-on-surface-variant text-sm mt-1">Comparing safety metrics for your destination</p>
+</header>
+<!-- Guardian Card (Top) -->
+<div class="relative group cursor-pointer transition-all duration-300 transform hover:translate-x-1">
+<div class="absolute -inset-0.5 bg-primary-container opacity-20 rounded-lg blur group-hover:opacity-40 transition duration-300"></div>
+<div class="relative bg-surface-container-high rounded-lg p-5 border-2 border-primary-container shadow-[0_0_20px_rgba(0,252,202,0.15)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<h2 class="font-headline font-bold text-primary-container tracking-tight">GUARDIAN PATH</h2>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest font-label font-medium">Safe Zones Optimized</p>
+</div>
+<div class="flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container/10 border border-secondary/20 shadow-[0_0_15px_rgba(195,244,0,0.1)]">
+<span class="text-secondary font-headline font-bold text-xl">98</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Safety</p>
+<p class="font-headline font-bold text-secondary">A+</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Light</p>
+<p class="font-headline font-bold text-on-surface">94%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Risk</p>
+<p class="font-headline font-bold text-primary-container">Low</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Time</p>
+<p class="font-headline font-bold text-on-surface-variant">+4m</p>
+</div>
+</div>
+<button class="w-full mt-6 py-3 bg-gradient-to-br from-primary to-primary-container rounded-full text-on-primary font-headline font-bold tracking-wide shadow-[0_0_15px_rgba(0,252,202,0.3)] hover:brightness-110 active:scale-95 transition-all">
+                        SELECT SECURE ROUTE
+                    </button>
+</div>
+</div>
+<!-- Standard Card (Bottom) -->
+<div class="bg-surface-container rounded-lg p-5 border-2 border-transparent hover:border-outline-variant/30 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1 text-outline">
+<span class="material-symbols-outlined text-xl">route</span>
+<h2 class="font-headline font-bold tracking-tight">STANDARD PATH</h2>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest font-label font-medium">Direct Utility Path</p>
+</div>
+<div class="flex items-center justify-center w-14 h-14 rounded-full bg-surface-container-highest border border-outline-variant/20">
+<span class="text-on-surface-variant font-headline font-bold text-xl">62</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2 opacity-70">
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Safety</p>
+<p class="font-headline font-bold text-on-surface">C-</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Light</p>
+<p class="font-headline font-bold text-on-surface">42%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Risk</p>
+<p class="font-headline font-bold text-error">High</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-label uppercase mb-1">Time</p>
+<p class="font-headline font-bold text-on-surface">Base</p>
+</div>
+</div>
+<button class="w-full mt-6 py-3 bg-surface-bright rounded-full text-on-surface-variant font-headline font-bold tracking-wide hover:text-on-surface active:scale-95 transition-all">
+                    SELECT FASTEST
+                </button>
+</div>
+<div class="mt-auto pt-6">
+<div class="p-4 bg-surface-container-highest rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Guardian Pulse" data-alt="portrait of a modern safety guardian avatar with neon rim lighting and cyberpunk aesthetic on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8Vxv9MPcszA9fijhKPc0fQZ-Vo_SyFQ6NQnc3BtijqPWlQxL6Pk-67C07UDrnm0viJhV34D6856mqdEZGCrXst_R2yKhPR4gT_iTLx9Evgq7IXm64MzPoRf5b2ecPUFZ9NQN098QgHecqchyO7EdmJyNbWH9yJhGZTE-5vnGyDS0Pc0aenmBpaacl3-SPc0QBgvGah5UtZM6XhgpK6rgFB6geyWIugtK20gugXUoTq--D_PS5IxPoHt18B9xHgiuHYzhr3wSexPA"/>
+</div>
+<div>
+<p class="text-xs text-secondary uppercase font-label font-bold tracking-tighter">Guardian Active</p>
+<p class="text-xs text-on-surface-variant">Safe Zones Engaged</p>
+</div>
+<div class="ml-auto">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Map Workspace -->
+<section class="flex-1 relative bg-surface-container-lowest">
+<div class="absolute inset-0 z-0">
+<img alt="Map View" class="w-full h-full object-cover opacity-50 grayscale contrast-125" data-alt="highly detailed dark mode digital city map with glowing cyan and amber district highlights vector aesthetic" data-location="Tokyo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf03DpPAA8vBEvdrTxaMV7-CwLrYhYAHW6Vn4MxwfVYvdx0cFkrgY4m2mKOJAFM7GRchDMmrwZtRTqQH6tXYnC5EOQLis7n2qG86Fj4uVcA7sk_7w9vZft31jgxFa6C7wefmkyVz96dTx_d_A5n8Yssd4yNnLJPQD8C1RLSQ42-kKi-0Y48mxRX1JjQ2TnChxbeRGvaPLAfuKqG-uSm3metdv9X_wETazf4N8xW3ODeIbaWGqt_HEj3ve9r9CdbNNldTMjUgIC4uM"/>
+<!-- SVG Route Overlay -->
+<svg class="absolute inset-0 w-full h-full z-10 pointer-events-none">
+<!-- Standard Path -->
+<path class="standard-path" d="M400,600 Q600,550 800,700 T1200,650" fill="none" stroke="#64748B" stroke-width="4"></path>
+<!-- Guardian Path -->
+<path class="guardian-path" d="M400,600 Q500,400 900,450 T1200,650" fill="none" stroke="#00FFCC" stroke-width="8"></path>
+<!-- Start Point -->
+<circle class="shadow-lg" cx="400" cy="600" fill="#00FFCC" r="10"></circle>
+<circle cx="400" cy="600" fill="none" r="18" stroke="#00FFCC" stroke-opacity="0.3" stroke-width="2"></circle>
+<!-- End Point -->
+<circle cx="1200" cy="650" fill="#ff6e81" r="10"></circle>
+<circle cx="1200" cy="650" fill="none" r="18" stroke="#ff6e81" stroke-opacity="0.3" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Map Floating Controls -->
+<div class="absolute right-8 top-8 z-20 flex flex-col gap-3">
+<div class="bg-surface-container p-3 rounded-lg shadow-xl cursor-pointer hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-primary">layers</span>
+</div>
+<div class="bg-surface-container p-3 rounded-lg shadow-xl cursor-pointer hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-on-surface">my_location</span>
+</div>
+<div class="bg-surface-container p-3 rounded-lg shadow-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-on-surface cursor-pointer hover:text-primary transition-colors">add</span>
+<div class="h-px bg-outline-variant/30"></div>
+<span class="material-symbols-outlined text-on-surface cursor-pointer hover:text-primary transition-colors">remove</span>
+</div>
+</div>
+<!-- Guardian Legend Overlay -->
+<div class="absolute left-8 bottom-8 z-20 bg-slate-900/80 backdrop-blur-2xl rounded-lg p-4 border border-outline-variant/10 shadow-2xl flex gap-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-1 bg-primary shadow-[0_0_8px_rgba(0,252,202,1)] rounded-full"></div>
+<span class="text-xs font-label uppercase font-bold tracking-wider text-on-surface">Guardian Route</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-1 border-t-2 border-dashed border-slate-500"></div>
+<span class="text-xs font-label uppercase font-bold tracking-wider text-slate-400">Standard Path</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Side Nav Navigation (Anchored) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col items-center py-8 gap-8 w-24 bg-slate-900/80 backdrop-blur-2xl rounded-r-3xl shadow-[10px_0_30px_rgba(0,0,0,0.4)] z-50">
+<div class="w-12 h-12 rounded-2xl bg-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex flex-col items-center gap-1 group cursor-pointer transition-all duration-300 hover:translate-x-1">
+<div class="bg-emerald-500/20 text-emerald-400 rounded-full p-4 shadow-[0_0_15px_rgba(0,255,204,0.2)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+<span class="text-[10px] font-space-grotesk text-emerald-400 font-medium uppercase">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer transition-all duration-300 hover:translate-x-1">
+<div class="text-slate-500 p-4 hover:text-emerald-200">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</div>
+<span class="text-[10px] font-space-grotesk text-slate-500 font-medium uppercase">Safety</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer transition-all duration-300 hover:translate-x-1">
+<div class="text-slate-500 p-4 hover:text-emerald-200">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<span class="text-[10px] font-space-grotesk text-slate-500 font-medium uppercase">Stats</span>
+</div>
+<div class="flex flex-col items-center gap-1 group cursor-pointer transition-all duration-300 hover:translate-x-1">
+<div class="text-slate-500 p-4 hover:text-emerald-200">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<span class="text-[10px] font-space-grotesk text-slate-500 font-medium uppercase">Setup</span>
+</div>
+</div>
+<div class="mt-auto">
+<button class="bg-error-container/20 text-error p-3 rounded-2xl border border-error/30 hover:bg-error-container/40 transition-colors font-headline font-black text-xs">
+                SOS
+            </button>
+</div>
+</aside>
+</body></html>

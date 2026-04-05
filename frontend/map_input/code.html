@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neon Guardian Navigator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#4e6300",
+                      "on-surface-variant": "#a7aab9",
+                      "inverse-on-surface": "#515561",
+                      "on-secondary-fixed": "#354500",
+                      "surface-container-highest": "#202534",
+                      "on-tertiary-fixed": "#39000c",
+                      "secondary-fixed-dim": "#b7e500",
+                      "error-container": "#9f0519",
+                      "surface-bright": "#262c3c",
+                      "on-secondary": "#455900",
+                      "surface-container-high": "#1a1f2d",
+                      "secondary-fixed": "#c3f400",
+                      "error": "#ff716c",
+                      "surface": "#0a0e18",
+                      "tertiary-fixed-dim": "#ff7989",
+                      "on-secondary-container": "#efffbc",
+                      "secondary-dim": "#b7e500",
+                      "on-primary-fixed": "#004535",
+                      "tertiary-dim": "#e7004c",
+                      "surface-tint": "#a8ffe1",
+                      "surface-container": "#151926",
+                      "tertiary-fixed": "#ff909b",
+                      "on-error": "#490006",
+                      "background": "#0a0e18",
+                      "on-error-container": "#ffa8a3",
+                      "primary-fixed-dim": "#00eabb",
+                      "on-primary-container": "#005b47",
+                      "primary": "#a8ffe1",
+                      "outline-variant": "#444854",
+                      "outline": "#727582",
+                      "error-dim": "#d7383b",
+                      "on-tertiary-container": "#000000",
+                      "on-surface": "#e5e7f6",
+                      "on-primary": "#00654f",
+                      "inverse-primary": "#006c55",
+                      "primary-fixed": "#00f9c7",
+                      "primary-container": "#00fcca",
+                      "on-tertiary": "#490012",
+                      "surface-container-lowest": "#000000",
+                      "secondary-container": "#506600",
+                      "secondary": "#c3f400",
+                      "on-background": "#e5e7f6",
+                      "surface-dim": "#0a0e18",
+                      "primary-dim": "#00eabb",
+                      "inverse-surface": "#faf8ff",
+                      "on-primary-fixed-variant": "#00644f",
+                      "surface-variant": "#202534",
+                      "on-tertiary-fixed-variant": "#780023",
+                      "surface-container-low": "#0f131e",
+                      "tertiary-container": "#ff0355",
+                      "tertiary": "#ff6e81"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": [
+                              "Space Grotesk"
+                      ],
+                      "body": [
+                              "Be Vietnam Pro"
+                      ],
+                      "label": [
+                              "Space Grotesk"
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+    background-color: #0a0e18
+    }
+h1, h2, h3, h4, .font-headline {
+    font-family: "Space Grotesk", sans-serif
+    }
+.map-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDSnuVzy-QSAQLVub0Sn85lJ2mqXmzab_rCHSCvtJnq9PLu3RDLuYFGd_15F1-bL5MyFwUbLbovJslME2uBrx-GYYAK8QFWMSBqZTXbNbiEMcjumvs2pzNbR-Nl5kGDpe8uB3FRBs7NkZYuhGIW_6IeFSPPJKMS3myZc8JoCSYhY2r32PDxZyxXFxiyj5lBbFz4RzDvXQ_wTHHQV2oEcQDjGPcq8fwFmRgd-l8KcbSmPpZwgK47YGjH0VHN5n5WCNAyEFkfPGdQpqg);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.2) saturate(1.5) contrast(1.2)
+    }
+.safe-haven-glow {
+    box-shadow: 0 0 15px 5px rgba(0, 252, 202, 0.4)
+    }</style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-slate-950/60 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-6">
+<span class="text-2xl font-black text-emerald-400 drop-shadow-[0_0_8px_rgba(0,255,204,0.4)] font-headline uppercase tracking-wider">Neon Guardian Navigator</span>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-headline font-bold uppercase tracking-wider text-emerald-300 border-b-2 border-emerald-400 pb-1" href="#">Map</a>
+<a class="font-headline font-bold uppercase tracking-wider text-slate-400 hover:text-emerald-100 transition-colors" href="#">Routes</a>
+<a class="font-headline font-bold uppercase tracking-wider text-slate-400 hover:text-emerald-100 transition-colors" href="#">Analytics</a>
+<a class="font-headline font-bold uppercase tracking-wider text-slate-400 hover:text-emerald-100 transition-colors" href="#">Guardian Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-emerald-400 hover:bg-slate-800/50 rounded-full scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-emerald-400 hover:bg-slate-800/50 rounded-full scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col items-center py-8 gap-8 bg-slate-900/80 backdrop-blur-2xl shadow-[10px_0_30px_rgba(0,0,0,0.4)] w-24 rounded-r-3xl z-40 mt-20 md:flex hidden">
+<div class="flex flex-col items-center gap-2 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-400">
+<img alt="User Profile Profile Neon Pulse" class="w-full h-full object-cover" data-alt="close-up portrait of a high-tech interface user in a dark room with neon cyan reflections on their face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1kdgexO2Gulk_DkIAAFtj89H7-JAcB_8UWhS48MhJR0dyUPbwNAuk2ihLiKWfRULJLVCwA4qEs1YLohZFTvcoZV4XNKroBdSbnBW9JMHPsdRgF4gtpSA9s7oZ51x43TrxaGt1FlEWZ3iJAmDjcuiqgzKodI1BsRLkTtrYMkGFP7MVhBlW3DQdf1ig_rNen4tn3hrBt1mhjgMzTHA4zr7a2mJQS_9K8mO0JWUKCrxLex-ebJ5uhq6jrfCCvNDpH0Gv3ntqUAZYc0g"/>
+</div>
+</div>
+<div class="flex flex-col gap-6 items-center">
+<button class="bg-emerald-500/20 text-emerald-400 rounded-full p-4 shadow-[0_0_15px_rgba(0,255,204,0.2)] hover:translate-x-1 duration-300">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+<button class="text-slate-500 p-4 hover:text-emerald-200 hover:translate-x-1 duration-300 transition-all">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+</button>
+<button class="text-slate-500 p-4 hover:text-emerald-200 hover:translate-x-1 duration-300 transition-all">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</button>
+<button class="text-slate-500 p-4 hover:text-emerald-200 hover:translate-x-1 duration-300 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="mt-auto pb-24">
+<button class="flex flex-col items-center gap-1 text-tertiary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined font-black text-3xl" data-icon="admin_panel_settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="text-[10px] font-headline font-bold">SOS</span>
+</button>
+</div>
+</aside>
+<!-- Main Map Canvas -->
+<main class="relative w-full h-screen">
+<!-- Interactive Map Element -->
+<div class="absolute inset-0 bg-[#0B0F19] map-bg" data-alt="highly detailed night satellite view of a city with deep navy water and glowing ember-like road networks in dark slate blue" data-location="Tokyo" style=""></div>
+<!-- SVG Map Overlay (Procedural Roads/Havens) -->
+<div class="absolute inset-0 z-10 pointer-events-none opacity-60">
+<svg class="w-full h-full" fill="none" viewbox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<!-- Safe Havens (Glowing Dots) -->
+<circle class="safe-haven-glow" cx="450" cy="320" fill="#00FFCC" r="6"></circle>
+<circle class="safe-haven-glow" cx="1200" cy="580" fill="#00FFCC" r="6"></circle>
+<circle class="safe-haven-glow" cx="1580" cy="240" fill="#00FFCC" r="6"></circle>
+<circle class="safe-haven-glow" cx="820" cy="880" fill="#00FFCC" r="6"></circle>
+<circle class="safe-haven-glow" cx="1700" cy="820" fill="#00FFCC" r="6"></circle>
+</svg>
+</div>
+<!-- Floating Search Panel -->
+<div class="absolute left-32 top-28 z-30 w-[380px] bg-[#161D2F]/90 backdrop-blur-2xl rounded-lg p-6 shadow-[20px_20px_50px_rgba(0,0,0,0.6)] border border-white/5">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-2 h-8 bg-primary rounded-full"></div>
+<h2 class="text-xl font-headline font-bold text-on-surface tracking-tight">Navigate Safely</h2>
+</div>
+<div class="space-y-4">
+<!-- Input Group: From -->
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="my_location">my_location</span>
+<input class="w-full h-12 pl-12 pr-4 bg-[#0B0F19] border-none rounded-full text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary-container focus:ring-offset-0 transition-all font-body" placeholder="From" type="text"/>
+</div>
+<!-- Input Group: To -->
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<input class="w-full h-12 pl-12 pr-4 bg-[#0B0F19] border-none rounded-full text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary-container focus:ring-offset-0 transition-all font-body" placeholder="To" type="text"/>
+</div>
+<!-- Settings/Options Chips -->
+<div class="flex gap-2 py-2 overflow-x-auto no-scrollbar">
+<button class="px-4 py-1.5 rounded-full bg-surface-container-highest text-[10px] font-headline font-bold uppercase tracking-widest text-primary border border-primary/20 whitespace-nowrap">Avoid Dark Zones</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-[10px] font-headline font-bold uppercase tracking-widest text-on-surface-variant whitespace-nowrap">Safest Path</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-[10px] font-headline font-bold uppercase tracking-widest text-on-surface-variant whitespace-nowrap">Crowded Only</button>
+</div>
+<!-- CTA -->
+<button class="w-full h-12 bg-primary-container text-surface-container-lowest font-headline font-bold rounded-full hover:shadow-[0_0_20px_rgba(0,252,202,0.6)] transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="route">route</span>
+                    Find Safe Route
+                </button>
+</div>
+<!-- Recent Locations -->
+<div class="mt-8">
+<p class="text-[10px] font-headline font-bold text-outline uppercase tracking-[0.2em] mb-4">Recent Sanctuaries</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="p-2 rounded-full bg-secondary-container/20 group-hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="local_police">local_police</span>
+</div>
+<div>
+<p class="text-sm font-headline font-bold text-on-surface">Precinct 09 Station</p>
+<p class="text-[11px] font-body text-outline">High visibility • Active monitoring</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="p-2 rounded-full bg-surface-container-highest group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="night_shelter">night_shelter</span>
+</div>
+<div>
+<p class="text-sm font-headline font-bold text-on-surface">Neon Hub 24/7</p>
+<p class="text-[11px] font-body text-outline">Guardian certified • Multi-personnel</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating UI Elements (Right Side) -->
+<div class="absolute right-8 bottom-8 z-30 flex flex-col gap-4">
+<button class="w-14 h-14 rounded-full bg-surface-container-highest/90 backdrop-blur-xl flex items-center justify-center text-on-surface shadow-xl hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+</button>
+<button class="w-14 h-14 rounded-full bg-surface-container-highest/90 backdrop-blur-xl flex items-center justify-center text-on-surface shadow-xl hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined" data-icon="gps_fixed">gps_fixed</span>
+</button>
+<button class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center text-surface-container-lowest shadow-[0_0_30px_rgba(0,252,202,0.4)] hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="add">add</span>
+</button>
+</div>
+<!-- Status Bar Overlays -->
+<div class="absolute top-24 right-8 z-30">
+<div class="bg-surface-container-low/80 backdrop-blur-md rounded-2xl p-4 flex items-center gap-4 shadow-lg border border-white/5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-[11px] font-headline font-bold text-on-surface uppercase tracking-wider">Guardian Active</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-sm" data-icon="wifi_protected_setup">wifi_protected_setup</span>
+<span class="text-[11px] font-headline font-bold text-on-surface-variant uppercase tracking-wider">Secure Signal</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation (hidden on MD+) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-slate-900/90 backdrop-blur-2xl px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-emerald-400">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-headline">Map</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="text-[10px] font-headline">Safety</span>
+</button>
+<div class="relative -top-8">
+<button class="w-16 h-16 bg-primary-container rounded-full shadow-[0_10px_30px_rgba(0,252,202,0.4)] flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="route">route</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-[10px] font-headline">Stats</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-headline">Profile</span>
+</button>
+</nav>
+</body></html>
